@@ -9,7 +9,7 @@ const forecast = (latitude, longitude, callback) => {
         } else if (response.body.error) {
             callback('Location not found', undefined)
         } else {
-            callback(undefined, response.body.current.weather_descriptions[0] + ". It is currently " + response.body.current.temperature + " degress out at " + response.body.current.observation_time)
+            callback(undefined, `Observation Time: ${response.body.current.observation_time}, ${response.body.current.weather_descriptions}, It is currently ${response.body.current.temperature} degrees out. But feels like ${response.body.current.feelslike}. There is ${response.body.current.precip}% chance of rain`)
         }
     })
 }
